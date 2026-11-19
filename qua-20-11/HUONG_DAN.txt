@@ -1,0 +1,29 @@
+HƯỚNG DẪN TÙY CHỈNH TRANG CHÚC MỪNG 20/11
+=========================================
+Cấu trúc:
+  index.html        - khung trang
+  css/style.css     - giao diện, màu sắc, hiệu ứng
+  js/config.js      - *** FILE BẠN SỬA: lời chúc, ảnh, nhạc ***
+  js/main.js        - xử lý luồng và hiệu ứng
+  assets/anh/       - ảnh cuộn phim
+  assets/nhac/      - nhạc nền
+
+1) Đổi lời chúc: mở js/config.js, sửa phần "thu" (tieuDe, noiDung, kyTen).
+2) Đổi ảnh: chép ảnh vào assets/anh/ rồi sửa danh sách "anh" trong config.js (thêm bao nhiêu ảnh cũng được; nên dùng ảnh ngang tỉ lệ 3:2).
+3) Đổi nhạc: chép file .mp3 vào assets/nhac/ rồi sửa dòng "nhac" trong config.js.
+   (Hiện đang dùng assets/nhac/In_Love.mp3. Tên file phải khớp chính xác, kể cả hoa/thường.)
+4) Chạy: mở index.html bằng trình duyệt, hoặc tốt nhất chạy server nhỏ:
+   python3 -m http.server 8000  rồi vào http://localhost:8000
+   Để chia sẻ qua link: tải cả thư mục lên Netlify / GitHub Pages / Vercel.
+Lưu ý: dùng điện thoại hãy xoay ngang màn hình.
+
+5) Thiết kế bó tulip (11 bông, kiểu giấy kraft xoè, phong bì ở điểm buộc):
+   Hình bó hoa SVG nằm trong index.html, phần <defs>.
+   - #bup-tulip: hình một bông tulip dạng chén tròn (cánh sau, 2 cánh bên, cánh giữa, đài tím).
+   - #bohoa: giấy gói phía sau, cuống, lá, 11 bông, giấy gói phía dưới, ruy băng và nơ.
+     Mỗi bông là một dòng <use href="#bup-tulip" ...>: đổi x/y để dời, rotate để nghiêng.
+   - Màu: chỉnh các gradient canhTulip..., daiTulip (đài), laTulip (lá), giayGoi, ruyBang.
+   - Kích thước bó hoa và vị trí phong bì: css/style.css, mục .hoa-tulip và .phongbi.
+
+6) Cảnh 2 (bầu trời đêm): nền, mây, sách, đồi, thỏ nằm trong index.html (phần #canh) và css/style.css (mục "CẢNH TRỜI ĐÊM").
+   Thư hiện chữ dần: chạm vào thư để hiện đủ ngay. Tốc độ gõ chỉnh ở js/main.js (số 32 trong setInterval).
